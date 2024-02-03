@@ -1,0 +1,67 @@
+.themeSwitcherBlock {
+    display: inline-flex;
+    position: relative;
+    width: 38px;
+    height: 38px;
+    span {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: linear 0.4s;
+
+        &.sun:hover {
+            background-color: #edf4ff;
+        }
+        &.moon:hover {
+            background-color: #656565;
+        }
+        &.active {
+            display: none;
+            animation: lightTheme 0.4s ease-in-out forwards;
+        }
+        &:not(.active) {
+            animation: darkTheme 0.2s ease-in-out forwards;
+        }
+    }
+}
+
+
+@keyframes lightTheme {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.75);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(0.25);
+        opacity: 0.25;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes darkTheme {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.5;
+    }
+    70% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

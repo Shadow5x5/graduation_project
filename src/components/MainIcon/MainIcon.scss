@@ -1,0 +1,26 @@
+@import "./../../styles/variables.scss";
+
+.iconBlock {
+    width: 44px;
+    height: 44px;
+    border-radius: 9.263px;
+    background: radial-gradient(
+            483.86% 483.86% at 39.47% 128.07%,
+            $blue 0%,
+            $white 100%
+        ),
+        radial-gradient(
+            204.75% 204.75% at 39.47% 128.07%,
+            #5e9cff 0%,
+            $white 100%
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--white, #fff);
+    font-size: 16.982px;
+    font-weight: 500;
+    line-height: 90%;
+    letter-spacing: -0.255px;
+}

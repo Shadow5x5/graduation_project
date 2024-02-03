@@ -1,0 +1,76 @@
+@import "./../../styles/variables.scss";
+
+.searchResultsBlock {
+    padding: 10px 10px 10px 20px;
+    border: 1px solid $blue;
+    max-width: 792px;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-radius: 0.75rem;
+    .searchBlock {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        height: 40px;
+        .inputBlock {
+            max-width: 635px;
+            flex-grow: 1;
+            height: 100%;
+            position: relative;
+            display: flex;
+            input {
+                padding-right: 30px;
+                flex-grow: 1;
+                height: 100%;
+                border: none;
+                font-size: 18px;
+                font-weight: 450px;
+                letter-spacing: -1.5%;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+                &::placeholder {
+                    color: $gray3;
+                }
+            }
+            button {
+                display: none;
+                position: absolute;
+                background: none;
+                border: none;
+                width: 30px;
+                height: 30px;
+                padding: 0px;
+                top: 50%;
+                right: 0;
+                transform: translate(0px, -50%);
+                cursor: pointer;
+                &.active {
+                    display: block;
+                }
+            }
+        }
+        > button {
+            height: 100%;
+            width: 100px;
+            background-color: $blue;
+            color: $white;
+            border: none;
+            border-radius: 6px;
+        }
+    }
+}
+
+@keyframes moveLeftRight {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: calc(
+            100% - 100px
+        ); /* сдвигаем влево на 100% ширины родительского элемента минус ширина placeholder */
+    }
+    100% {
+        left: 0;
+    }
+}

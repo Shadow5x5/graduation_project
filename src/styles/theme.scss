@@ -1,0 +1,37 @@
+@use "./variables.scss" as *;
+
+.light,
+.dark {
+    .text,
+    .background,
+    .line {
+        transition: all 0.3s ease;
+    }
+}
+
+.light {
+    transition: linear 0.3s;
+    .text {
+        color: $black;
+    }
+    .background {
+        background-color: $white;
+    }
+    .line {
+        background-color: $gray1;
+    }
+}
+
+.dark {
+    .text {
+        color: $white;
+    }
+
+    .background {
+        background-color: $black;
+    }
+
+    .line {
+        background-color: $gray3;
+    }
+}
