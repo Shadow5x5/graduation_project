@@ -1,16 +1,15 @@
 import { useState } from "react";
 import "./ThemeSwitcher.scss";
-import { ThemeContext } from "./../../context/ThemeContext";
+import { ThemeContext } from "./../../../context/ThemeContext";
 import { useContext } from "react";
 
 const ThemeSwitcher = () => {
-    const {setTheme } = useContext(ThemeContext);
+    const { setTheme } = useContext(ThemeContext);
     const [isActive, setActive] = useState<boolean>(true);
     const toggleTheme = () => {
-        if(!isActive){
+        if (!isActive) {
             setTheme("light");
-        }
-        else{
+        } else {
             setTheme("dark");
         }
         setActive(!isActive);

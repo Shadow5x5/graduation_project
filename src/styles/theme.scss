@@ -17,8 +17,13 @@
     .background {
         background-color: $white;
     }
+
     .line {
-        background-color: $gray1;
+        background-color: $gray4;
+    }
+
+    .background_search {
+        background-color: $white;
     }
 }
 
@@ -32,6 +37,10 @@
     }
 
     .line {
-        background-color: $gray3;
+        background-color: $gray2;
+    }
+
+    .background_search {
+        background-color: $gray1;
     }
 }

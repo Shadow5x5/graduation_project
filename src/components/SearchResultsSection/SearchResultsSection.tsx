@@ -1,5 +1,6 @@
 import "./SearchResultsSection.scss";
 import { useState } from "react";
+import SearchResult from "../SearchResult/SearchResult";
 const SearchResultsSection = () => {
     const [inputValue, setInputValue] = useState<string>("");
     const [isActive, setActive] = useState<boolean>(false);
@@ -16,13 +17,13 @@ const SearchResultsSection = () => {
         setActive(false);
     };
     return (
-        <div className="searchResultsBlock">
+        <div className="searchResultsBlock background_search">
             <div className="searchBlock">
                 <div className="inputBlock">
                     <input
                         type="text"
                         placeholder="Модель летательного аппарата"
-                        className="background text"
+                        className="text"
                         value={inputValue}
                         onChange={onChangeText}
                     />
@@ -34,6 +35,7 @@ const SearchResultsSection = () => {
                 </div>
                 <button>Найти</button>
             </div>
+            <SearchResult />
         </div>
     );
 };

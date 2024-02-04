@@ -10,7 +10,7 @@
     .searchBlock {
         display: flex;
         align-items: center;
-        column-gap: 20px;
+        justify-content: space-between;
         height: 40px;
         .inputBlock {
             max-width: 635px;
@@ -19,16 +19,11 @@
             position: relative;
             display: flex;
             input {
-                padding-right: 30px;
                 flex-grow: 1;
-                height: 100%;
-                border: none;
                 font-size: 18px;
-                font-weight: 450px;
-                letter-spacing: -1.5%;
                 border: none;
                 outline: none;
-                box-sizing: border-box;
+                background: none;
                 &::placeholder {
                     color: $gray3;
                 }
@@ -57,6 +52,7 @@
             color: $white;
             border: none;
             border-radius: 6px;
+            cursor: pointer;
         }
     }
 }

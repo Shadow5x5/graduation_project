@@ -1,6 +1,6 @@
 import "./Nav.scss";
-import Logo from "../Logo/Logo";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import Logo from "./Logo/Logo";
+import ThemeSwitcher from "./ThemeSwitcher/ThemeSwitcher";
 
 const Nav = () => {
     return (
