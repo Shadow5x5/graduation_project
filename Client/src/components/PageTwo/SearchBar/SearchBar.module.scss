@@ -1,0 +1,52 @@
+@import "./../../../styles/variables.scss";
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+}
+.content {
+    display: flex;
+    align-items: center;
+    flex-basis: 800px;
+    flex-shrink: 5;
+    margin-left: 36px;
+    border: 2px solid $blue;
+    border-radius: 12px;
+    padding: 10px 10px 10px 20px;
+    height: auto;
+    margin-right: auto;
+    .inputBlock {
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        input {
+            width: 100%;
+            font-size: 18px;
+            padding-right: 40px;
+            border: none;
+            outline: none;
+            background: none;
+            &::placeholder {
+                color: $gray3;
+            }
+            @media only screen and (max-width: 600px) {
+                font-size: 16px;
+            }
+        }
+    }
+    .findButton {
+        height: 40px;
+        width: 97px;
+        min-width: 83px;
+        background-color: $blue;
+        color: $white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        display: block;
+    }
+}

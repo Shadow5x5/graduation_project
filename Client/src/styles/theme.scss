@@ -1,0 +1,68 @@
+@use "./variables.scss" as *;
+
+.light,
+.dark {
+    .text,
+    .background,
+    .line {
+        transition: all 0.3s ease;
+    }
+}
+
+.light {
+    transition: linear 0.3s;
+    .text {
+        color: $black;
+    }
+    .background {
+        background-color: $white;
+    }
+
+    .line {
+        background-color: $gray4;
+    }
+
+    .background_search_1 {
+        background-color: $white;
+        border: none;
+    }
+    .background_search_2 {
+        background-color: $white;
+    }
+    .background_search_3 {
+        background-color: $white;
+        border: 1px solid $blue;
+    }
+    .button_mic_dark {
+        display: none;
+    }
+}
+
+.dark {
+    .text {
+        color: $white;
+    }
+
+    .background {
+        background-color: $black;
+    }
+
+    .line {
+        background-color: $gray2;
+    }
+
+    .background_search_1 {
+        background-color: $gray1;
+        border: none;
+    }
+    .background_search_2 {
+        background-color: $black;
+    }
+    .background_search_4 {
+        background-color: $gray1;
+        border: 1px solid $gray2;
+    }
+    .button_mic_light {
+        display: none;
+    }
+}

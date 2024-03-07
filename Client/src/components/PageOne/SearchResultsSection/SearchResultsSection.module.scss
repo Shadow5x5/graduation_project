@@ -1,0 +1,89 @@
+@import "./../../styles/variables.scss";
+
+.block {
+    padding: 10px 10px 10px 20px;
+    border: 1px solid $blue;
+    max-width: 792px;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-radius: 0.75rem;
+    .searchBlock {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        column-gap: 12px;
+        box-sizing: border-box;
+        .inputBlock {
+            max-width: 635px;
+            flex-grow: 1;
+            height: 100%;
+            position: relative;
+            display: flex;
+            input {
+                width: 100%;
+                font-size: 18px;
+                padding-right: 10px;
+                border: none;
+                padding: 0px 30px 0px 0px;
+                outline: none;
+                background: none;
+                &::placeholder {
+                    color: $gray3;
+                }
+                @media only screen and (max-width: 600px) {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .findButton {
+            height: 100%;
+            width: 97px;
+            min-width: 83px;
+            background-color: $blue;
+            color: $white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            @media only screen and (max-width: 500px) {
+                display: none;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 410px) {
+        margin-top: 32px;
+    }
+}
+
+.smallScreen {
+    .searchBlock {
+        @media only screen and (max-width: 600px) {
+            padding: 10px 10px 10px 20px;
+            height: auto;
+            border-radius: 12px;
+        }
+        .find_button {
+            height: 34px;
+            display: block;
+        }
+        input {
+            @media only screen and (max-width: 600px) {
+                height: 34px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        position: absolute;
+        top: 0px;
+        left: 10px;
+        right: 10px;
+        padding: 0px;
+        height: 100dvh;
+        margin-top: 24px;
+        border: none;
+    }
+}

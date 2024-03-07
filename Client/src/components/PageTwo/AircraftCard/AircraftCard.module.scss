@@ -1,0 +1,35 @@
+@import "./../../../styles/variables.scss";
+
+.block {
+    cursor: pointer;
+    width: 288px;
+    .blockImg {
+        border-radius: 12px;
+        height: 180px;
+        overflow: hidden;
+    }
+    .subBlockText {
+        display: flex;
+        flex-direction: column;
+        row-gap: 6px;
+        margin-top: 12px;
+        .aircraftInfo {
+            display: flex;
+            align-items: center;
+            color: $gray2;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 14px;
+            column-gap: 6px;
+            .aircraftModel {
+                font-size: 18px;
+                font-weight: 450;
+                line-height: 18px;
+            }
+            .imgCircle {
+                height: 5px;
+                width: 5px;
+            }
+        }
+    }
+}

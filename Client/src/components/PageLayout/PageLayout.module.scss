@@ -1,0 +1,13 @@
+.block {
+    display: flex;
+    margin-top: 38px;
+    column-gap: 94px;
+    width: 100%;
+    .subBlock {
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        row-gap: 22px;
+        width: 100%;
+    }
+}

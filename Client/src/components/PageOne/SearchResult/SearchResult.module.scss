@@ -1,0 +1,65 @@
+@import "./../../../styles/variables.scss";
+
+.block {
+    .line {
+        background-color: $gray4;
+        height: 1px;
+        margin: 16px 0px;
+    }
+
+    font-size: 14px;
+    font-style: normal;
+    line-height: 100%;
+
+    .blockHeaderTable {
+        display: grid;
+        grid-template-columns:
+            minmax(235px, 313px) minmax(64px, 137px) minmax(72px, 137px)
+            minmax(80px, auto);
+        padding: 0;
+        font-weight: 450;
+        color: $gray2;
+    }
+    @media screen and (max-width: 600px) {
+        .passengerListItem {
+            display: none;
+        }
+        .blockHeaderTable {
+            grid-template-columns: minmax(235px, 313px) 1fr 1fr;
+            column-gap: 20px;
+        }
+    }
+    @media screen and (max-width: 580px) {
+        .distanceListItem {
+            display: none;
+        }
+        .blockHeaderTable {
+            grid-template-columns: minmax(235px, 313px) minmax(64px, 137px);
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .speedListItem {
+            display: none;
+        }
+        .blockHeaderTable {
+            grid-template-columns: minmax(235px, 313px);
+        }
+    }
+}
+
+.smallScreenResultBlock {
+    .line {
+        @media only screen and (max-width: 600px) {
+            display: none;
+            margin: 0px;
+        }
+    }
+    .blockHeaderTable {
+        @media only screen and (max-width: 600px) {
+            margin-top: 0px;
+        }
+    }
+    margin-top: 16px;
+    padding: 10px;
+    border-radius: 12px;
+}

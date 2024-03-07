@@ -1,0 +1,36 @@
+@import "./../../../styles/variables.scss";
+
+.block {
+    position: relative;
+    .imgCheckbox {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: 0px;
+        left: 0px;
+        border: 2px solid $gray2;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active {
+            background-color: $blue;
+            border: none;
+            img {
+                opacity: 1;
+            }
+        }
+        img {
+            opacity: 0;
+            height: 16px;
+            width: 16px;
+            transition: 0.3s;
+        }
+    }
+    .textCheckbox {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 14px;
+        margin-left: 30px;
+    }
+}
