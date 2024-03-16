@@ -1,0 +1,25 @@
+@import "./../../../../styles/variables.scss";
+
+.block {
+    min-width: 236px;
+    height: 128px;
+    border-radius: 12px;
+    padding: 20px 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    background-color: $blue;
+    &span:first-child {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: left;
+    }
+    &span:last-child {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+    }
+}

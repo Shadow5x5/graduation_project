@@ -88,6 +88,7 @@ app.post("/search", async (req, res) => {
                 httpsAgent: httpsAgent,
             },
         );
+        console.log(response.data.hits.hits.map((hit) => hit._source));
         res.json(response.data.hits.hits.map((hit) => hit._source));
     } catch (error) {
         res.status(500).send("An error occurred while processing your request.");

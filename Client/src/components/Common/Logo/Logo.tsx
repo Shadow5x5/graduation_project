@@ -1,4 +1,4 @@
-import AppTitle from "../../Nav/AppTitle/AppTitle";
+import AppTitle from "../AppTitle/AppTitle";
 import MainIcon from "../MainIcon/MainIcon";
 import "./Logo.scss";
 const Logo = () => {

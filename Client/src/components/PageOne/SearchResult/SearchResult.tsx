@@ -9,10 +9,10 @@ interface MyComponentProps {
 }
 
 const SearchResult: React.FC<MyComponentProps> = ({searchText, isSmallScreen}) => {
-    const {items} = useAppSelector((state) => state.one);
+    const {aircrafts} = useAppSelector((state) => state);
     return (
         <>
-            {items.length > 0 && (
+            {aircrafts.length > 0 && (
                 <div
                     className={`${classes.block} ${
                         isSmallScreen ? classes.smallScreenResultBlock : ""
@@ -25,7 +25,7 @@ const SearchResult: React.FC<MyComponentProps> = ({searchText, isSmallScreen}) =
                         <li className={classes.passengerListItem}>Пассажиры</li>
                     </ul>
                     <>
-                        {items.slice(0, 5).map((item) => {
+                        {aircrafts.slice(0, 5).map((item) => {
                             return (
                                 <AircraftInfo
                                     key={item.AircraftName}
@@ -36,6 +36,7 @@ const SearchResult: React.FC<MyComponentProps> = ({searchText, isSmallScreen}) =
                                     passengerText={item.SeatCapacity}
                                     typeText={item.AircraftCategory}
                                     aicraftTypeName={item.Aircraft}
+                                    id={item.id}
                                 />
                             );
                         })}

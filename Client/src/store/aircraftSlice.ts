@@ -187,6 +187,7 @@ const aircraftSlice = createSlice({
             .addCase(fetchAircrafts.fulfilled, (state, action) => {
                 state.status = "succeeded";
                 state.aircrafts = action.payload;
+                // console.log(state.aircrafts);
                 state.filteredSortedAircrafts = action.payload;
             })
             .addCase(fetchAircrafts.rejected, (state, action) => {

@@ -1,3 +1,4 @@
+import {useNavigate} from "react-router-dom";
 import classes from "./AircraftInfo.module.scss";
 import {useEffect, useState} from "react";
 
@@ -9,6 +10,7 @@ interface MyComponentProps {
     aircraftName: string;
     typeText: string;
     aicraftTypeName: string;
+    id: string;
 }
 
 const AircraftInfo: React.FC<MyComponentProps> = ({
@@ -19,7 +21,9 @@ const AircraftInfo: React.FC<MyComponentProps> = ({
     distanceText,
     passengerText,
     typeText,
+    id,
 }) => {
+    const navigate = useNavigate();
     const [highlightedValue, setHighlightedValue] = useState("");
 
     useEffect(() => {
@@ -28,20 +32,19 @@ const AircraftInfo: React.FC<MyComponentProps> = ({
 
     const highlightText = (textInput: string) => {
         const nameAircraft: string = aircraftName;
-        const regex = new RegExp(`(${textInput})`, 'gi');
-        setHighlightedValue(nameAircraft.replace(regex, '<span>$1</span>'));
-
-
-        // if (textInput.length !== 0) {
-        //     const tempText: string = nameAircraft.replace(textInput, `<span>${textInput}</span>`);
-        //     setHighlightedValue(tempText);
-        // } else {
-        //     setHighlightedValue(nameAircraft);
-        // }
+        const regex = new RegExp(`(${textInput})`, "gi");
+        setHighlightedValue(nameAircraft.replace(regex, "<span>$1</span>"));
     };
-
+    const handleSearch = (id: number) => {
+        navigate(`aircraft/${id}`);
+    };
     return (
-        <div className={`${classes.block} text`}>
+        <div
+            className={`${classes.block} text`}
+            onClick={() => {
+                handleSearch(Number(id));
+            }}
+            style={{cursor: "pointer"}}>
             <div>
                 <span
                     className={`${classes.aircraftName}`}

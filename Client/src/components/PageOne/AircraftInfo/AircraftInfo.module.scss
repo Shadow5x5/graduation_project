@@ -3,7 +3,7 @@
 .block {
     padding: 0;
     display: grid;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
     grid-template-columns:
         minmax(235px, 313px) minmax(64px, 137px) minmax(72px, 137px)
         minmax(80px, auto);

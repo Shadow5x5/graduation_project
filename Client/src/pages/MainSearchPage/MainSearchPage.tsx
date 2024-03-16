@@ -1,7 +1,11 @@
 import "./MainSearchPage.scss";
-import Nav from "../../components/Nav/Nav";
 import SearchResultsSection from "../../components/PageOne/SearchResultsSection/SearchResultsSection";
+import Nav from "../../components/PageOne/Nav/Nav";
+import { useEffect } from "react";
 const MainSearchPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className='mainBlock'>
             <Nav />

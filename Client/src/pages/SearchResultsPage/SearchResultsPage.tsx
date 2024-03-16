@@ -19,6 +19,9 @@ const SearchResultsPage = () => {
         dispatch(fetchMaxPassengerCapacity());
         dispatch(fetchAircraftManufacturers());
     }, [dispatch]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className={classes.container}>
             <SearchBar />

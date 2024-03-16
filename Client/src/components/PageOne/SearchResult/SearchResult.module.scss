@@ -20,6 +20,11 @@
         font-weight: 450;
         color: $gray2;
     }
+
+    .buttonNavLink {
+        text-decoration: none;
+        margin-bottom: 16px;
+    }
     @media screen and (max-width: 600px) {
         .passengerListItem {
             display: none;
