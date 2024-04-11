@@ -12,8 +12,8 @@ const InfiniteSlider = () => {
     const {aircrafts} = useAppSelector((state) => state);
     const {id} = useParams();
     const aircraft = aircrafts.find((aircraft) => aircraft.id === id);
-    let imgPath:string[] = []
-    if(aircraft && aircraft.SliderImages && aircraft.SliderImages.length > 0) {
+    let imgPath: string[] = [];
+    if (aircraft && aircraft.SliderImages && aircraft.SliderImages.length > 0) {
         imgPath = aircraft.SliderImages.map((item) => "http://localhost:3500/" + item);
     }
     const length = imgPath.length;
@@ -120,7 +120,7 @@ const InfiniteSlider = () => {
 
     function renderCircles() {
         const circles = [];
-        for (let i = 0; i < length + 4; i++) {
+        for (let i = 0; i < length + 5; i++) {
             circles.push(
                 <span
                     key={i}

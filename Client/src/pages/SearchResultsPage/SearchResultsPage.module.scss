@@ -15,5 +15,32 @@
         flex-direction: column;
         row-gap: 22px;
         width: 100%;
+        .blockOptions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            button {
+                column-gap: 8px;
+                background: none;
+                outline: none;
+                border: none;
+                padding: 0px;
+                cursor: pointer;
+                display: none;
+                @media (max-width: 840px) {
+                    display: flex;
+                }
+            }
+            @media (max-width: 840px) {
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 10px;
     }
 }

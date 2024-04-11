@@ -1,6 +1,5 @@
 @import "./../../../../styles/variables.scss";
 
-
 .block {
     display: flex;
     flex-direction: column;
@@ -17,5 +16,17 @@
         line-height: 19px;
         letter-spacing: -0.01em;
         color: $gray2;
+    }
+}
+@media (max-width: 600px) {
+    .block {
+        h2 {
+            font-size: 20px;
+            line-height: 24px;
+        }
+        p {
+            font-size: 14px !important;
+            line-height: 16.8px !important;
+        }
     }
 }

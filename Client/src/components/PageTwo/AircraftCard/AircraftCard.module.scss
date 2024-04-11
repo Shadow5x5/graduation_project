@@ -2,11 +2,10 @@
 
 .block {
     cursor: pointer;
-    width: 288px;
     .blockImg {
         border-radius: 12px;
-        height: 180px;
         overflow: hidden;
+        height: auto;
     }
     .subBlockText {
         display: flex;
@@ -15,6 +14,7 @@
         margin-top: 12px;
         .aircraftInfo {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             color: $gray2;
             font-size: 14px;

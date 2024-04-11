@@ -1,6 +1,5 @@
 .block {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     width: 100%;
     justify-content: start;
     gap: 16px;

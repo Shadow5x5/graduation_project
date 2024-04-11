@@ -22,7 +22,9 @@ const SearchBar = () => {
     };
     return (
         <div className={classes.container}>
-            <MainIcon />
+            <div className={classes.mainIconHide}>
+                <MainIcon />
+            </div>
             <div className={classes.content}>
                 <div className={classes.inputBlock}>
                     <input

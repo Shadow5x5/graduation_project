@@ -7,7 +7,12 @@ import {
     setPassengerCountRange,
     setSelectedTypes,
 } from "../../../store/aircraftSlice";
-const FilterBlock = () => {
+
+interface Props {
+    leftValue: number;
+    toggleLeft: () => void;
+}
+const FilterBlock: React.FC<Props> = ({leftValue, toggleLeft}) => {
     const dispatch = useAppDispatch();
     const {aircraftCategories, manufacturers, maxPassengerCapacity} = useAppSelector(
         (state) => state,
@@ -48,7 +53,13 @@ const FilterBlock = () => {
     };
 
     return (
-        <div className={classes.container}>
+        <div className={`${classes.container} background_search_2`} style={{left: `${leftValue}%`}}>
+            <div className={classes.blockTitle}>
+                <h4 className='text'>Фильтры</h4>
+                <button onClick={toggleLeft}>
+                    <img src='./images/x.svg' alt='' />
+                </button>
+            </div>
             <div className={classes.section1}>
                 <h6 className='text'>Вид судна</h6>
                 <div
@@ -109,16 +120,10 @@ const FilterBlock = () => {
             <div className={classes.section3}>
                 <h6 className='text'>Пассажирских мест</h6>
                 <div className={classes.blockInputs}>
-                    <input
-                        type='number'
-                        placeholder='от 1'
-                        className='background_search_4'
-                        onChange={handleMinChange}
-                    />
+                    <input type='number' placeholder='от 1' onChange={handleMinChange} />
                     <input
                         type='number'
                         placeholder={`до ${maxPassengerCapacity}`}
-                        className='background_search_4'
                         onChange={handleMaxChange}
                     />
                 </div>

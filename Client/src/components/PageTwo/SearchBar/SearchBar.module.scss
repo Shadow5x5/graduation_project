@@ -50,3 +50,17 @@
         display: block;
     }
 }
+
+@media (max-width: 968px) {
+    .content {
+        margin-right: 29px;
+    }
+}
+@media (max-width: 640px) {
+    .mainIconHide {
+        display: none;
+    }
+    .content {
+        margin-left: 0;
+    }
+}

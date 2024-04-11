@@ -5,6 +5,8 @@ interface Props {
     aircraftType: string;
     aircraftSizeCategory: string;
     imgPath: string;
+    width: number;
+    height: number;
 }
 
 const AircraftCard: React.FC<Props> = ({
@@ -12,11 +14,13 @@ const AircraftCard: React.FC<Props> = ({
     aircraftSizeCategory,
     aircraftType,
     imgPath,
+    width,
+    height,
 }) => {
     const imgPathServer = "http://localhost:3500/" + imgPath;
     return (
-        <div className={classes.block}>
-            <div className={classes.blockImg}>
+        <div className={classes.block} style={{width: `${width}px`}}>
+            <div className={classes.blockImg} style={{height: `${height}px`}}>
                 <img src={imgPathServer} alt='' />
             </div>
             <div className={classes.subBlockText}>

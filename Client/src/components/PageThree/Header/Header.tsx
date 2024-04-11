@@ -28,7 +28,7 @@ const Header = () => {
                     <div className={classes.section_1}>
                         <div className={classes.titleBlock}>
                             <h5 className='text'>{aircraft.Aircraft}</h5>
-                            <h1 className='text'>{aircraft.AircraftName}</h1>
+                            <h1 className={`${classes.titleText} text`}>{aircraft.AircraftName}</h1>
                         </div>
                         <div className={classes.mainImgBlock}>
                             <img src={imgPathServer} alt='' />

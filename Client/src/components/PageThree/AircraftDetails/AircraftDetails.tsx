@@ -41,17 +41,20 @@ const AircraftDetails = () => {
     if (!aircraft) {
         return <div>Информация о самолете недоступна.</div>;
     }
-
+    console.log(aircraft.BasicDescription);
     return (
         <div className={classes.block}>
             <div className={classes.blockAbout}>
-                {aircraft.BasicDescription.map((item, index) => (
-                    <p
-                        key={index}
-                        className={`${index === 0 ? classes.textBlack : classes.textGrey} text`}>
-                        {item}
-                    </p>
-                ))}
+                {aircraft.BasicDescription &&
+                    aircraft.BasicDescription.map((item, index) => (
+                        <p
+                            key={index}
+                            className={`${
+                                index === 0 ? classes.textBlack : classes.textGrey
+                            } text`}>
+                            {item}
+                        </p>
+                    ))}
             </div>
             <div className={classes.blockCardsInfo}>
                 {arrayCardInfo.map((item, index) => (

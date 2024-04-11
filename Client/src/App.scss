@@ -4,4 +4,14 @@
 .mainBlock {
     height: 100vh;
 }
-
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #2c2c2c;
+}
+::-webkit-scrollbar-thumb {
+    background: #3482ff;
+    border-radius: 10px;
+    height: 157px;
+}

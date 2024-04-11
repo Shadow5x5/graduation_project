@@ -10,16 +10,29 @@
     justify-content: space-between;
     color: white;
     background-color: $blue;
-    &span:first-child {
+    .firstSpan {
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 20px;
         text-align: left;
     }
-    &span:last-child {
+    .secondSpan {
         font-size: 24px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 24px;
         text-align: left;
+    }
+}
+@media (max-width: 600px) {
+    .block {
+        .firstSpan {
+            font-size: 16px;
+            line-height: 17.6px;
+            letter-spacing: -0.01em;
+        }
+        .secondSpan {
+            font-size: 20px;
+            line-height: 20px;
+        }
     }
 }

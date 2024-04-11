@@ -7,8 +7,8 @@ interface Props {
 const CardInfo: React.FC<Props> = ({designation, value}) => {
     return (
         <div className={classes.block}>
-            <span>{designation}</span>
-            <span>{value}</span>
+            <span className={classes.firstSpan}>{designation}</span>
+            <span className={classes.secondSpan}>{value}</span>
         </div>
     );
 };
