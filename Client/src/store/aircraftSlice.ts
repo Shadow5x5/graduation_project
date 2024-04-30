@@ -90,6 +90,7 @@ const aircraftSlice = createSlice({
     reducers: {
         setItems: (state, action: PayloadAction<Aircraft[]>) => {
             state.filteredSortedAircrafts = action.payload;
+            console.log("1231232131");
             aircraftSlice.caseReducers.applyFiltersAndSort(state);
         },
         setSelectedTypes: (state, action: PayloadAction<string>) => {
@@ -103,6 +104,7 @@ const aircraftSlice = createSlice({
         },
         setSelectedManufacturers: (state, action: PayloadAction<string>) => {
             const manufacturer = action.payload;
+            console.log(manufacturer);
             if (state.selectedManufacturers.includes(manufacturer)) {
                 state.selectedManufacturers = state.selectedManufacturers.filter(
                     (m) => m !== manufacturer,
@@ -175,7 +177,6 @@ const aircraftSlice = createSlice({
                 default:
                     break;
             }
-            console.log(filteredItems);
             state.filteredSortedAircrafts = filteredItems;
         },
     },
@@ -187,8 +188,8 @@ const aircraftSlice = createSlice({
             .addCase(fetchAircrafts.fulfilled, (state, action) => {
                 state.status = "succeeded";
                 state.aircrafts = action.payload;
-                // console.log(state.aircrafts);
-                state.filteredSortedAircrafts = action.payload;
+                const simulatedAction = {type: "setItems", payload: action.payload};
+                aircraftSlice.caseReducers.setItems(state, simulatedAction);
             })
             .addCase(fetchAircrafts.rejected, (state, action) => {
                 state.status = "failed";
