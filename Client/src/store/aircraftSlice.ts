@@ -39,6 +39,8 @@ interface AircraftState {
     sortOrder: "CruisingSpeed" | "Range" | "MaximumNumberOfPassengers" | "";
     status: "idle" | "loading" | "succeeded" | "failed";
     error: string | undefined;
+    selectedAircraft?: Aircraft;
+    recommendedAircrafts: Aircraft[];
 }
 
 const initialState: AircraftState = {
@@ -53,6 +55,8 @@ const initialState: AircraftState = {
     sortOrder: "",
     status: "idle",
     error: undefined,
+    selectedAircraft: undefined,
+    recommendedAircrafts: [],
 };
 
 export const fetchAircrafts = createAsyncThunk("aircraft/fetchAircrafts", async (query: string) => {
@@ -80,6 +84,16 @@ export const fetchMaxPassengerCapacity = createAsyncThunk(
     "aircraft/fetchMaxPassengerCapacity",
     async () => {
         const response = await axios.get<string>("http://localhost:3000/maxPassengers");
+        return response.data;
+    },
+);
+
+export const fetchRecommendedAircrafts = createAsyncThunk(
+    "aircraft/fetchRecommendedAircrafts",
+    async (Id: string) => {
+        const response = await axios.post<Aircraft[]>("http://localhost:3000/recommendations", {
+            Id,
+        });
         return response.data;
     },
 );
@@ -182,6 +196,17 @@ const aircraftSlice = createSlice({
             }
             state.filteredSortedAircrafts = filteredItems;
         },
+        setSelectedAircraft: (state, action: PayloadAction<string>) => {
+            const aircraftId = action.payload;
+            state.selectedAircraft = state.filteredSortedAircrafts.find((aircraft) => aircraft.id === aircraftId);
+        },
+        setSelectedRecommendedAircraft: (state, action: PayloadAction<string>) => {
+            const aircraftId = action.payload;
+            state.selectedAircraft = state.recommendedAircrafts.find((aircraft) => aircraft.id === aircraftId);
+        },
+        clearSelectedAircraft: (state) => {
+            state.selectedAircraft = undefined;
+        },
     },
     extraReducers(builder) {
         builder
@@ -199,6 +224,7 @@ const aircraftSlice = createSlice({
                 console.error(action.error);
                 state.error = action.error.message;
             })
+
             .addCase(fetchAircraftCategories.pending, (state) => {
                 state.status = "loading";
             })
@@ -211,6 +237,7 @@ const aircraftSlice = createSlice({
                 console.error(action.error);
                 state.error = action.error.message;
             })
+
             .addCase(fetchAircraftManufacturers.pending, (state) => {
                 state.status = "loading";
             })
@@ -223,6 +250,7 @@ const aircraftSlice = createSlice({
                 console.error(action.error);
                 state.error = action.error.message;
             })
+
             .addCase(fetchMaxPassengerCapacity.pending, (state) => {
                 state.status = "loading";
             })
@@ -236,6 +264,19 @@ const aircraftSlice = createSlice({
                 state.status = "failed";
                 console.error(action.error);
                 state.error = action.error.message;
+            })
+
+            .addCase(fetchRecommendedAircrafts.pending, (state) => {
+                state.status = "loading";
+            })
+            .addCase(fetchRecommendedAircrafts.fulfilled, (state, action) => {
+                state.status = "succeeded";
+                state.recommendedAircrafts = action.payload;
+            })
+            .addCase(fetchRecommendedAircrafts.rejected, (state, action) => {
+                state.status = "failed";
+                console.error(action.error);
+                state.error = action.payload as string;
             });
     },
 });
@@ -248,4 +289,7 @@ export const {
     setPassengerCountRange,
     setSortOrder,
     applyFiltersAndSort,
+    setSelectedAircraft,
+    clearSelectedAircraft,
+    setSelectedRecommendedAircraft
 } = aircraftSlice.actions;

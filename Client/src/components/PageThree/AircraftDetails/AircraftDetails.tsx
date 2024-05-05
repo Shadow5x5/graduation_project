@@ -3,7 +3,6 @@ import {useAppSelector} from "../../../context/hook";
 import classes from "./AircraftDetails.module.scss";
 import CardDescription from "./CardDescription/CardDescription";
 import CardInfo from "./CardInfo/CardInfo";
-import {useParams} from "react-router-dom";
 
 const arrayCardInfo = [
     "Количество мест",
@@ -16,9 +15,8 @@ const arrayCardInfo = [
 const arrayCardsDescription = ["Интерьер", "Цена"];
 
 const AircraftDetails = () => {
-    const {aircrafts} = useAppSelector((state) => state);
-    const {id} = useParams();
-    const aircraft = aircrafts.find((aircraft) => aircraft.id === id);
+    const selectedAircraft = useAppSelector((state) => state.selectedAircraft);
+    const aircraft = selectedAircraft;
     const arrayCardInfoValue = useMemo(
         () =>
             aircraft
@@ -41,7 +39,6 @@ const AircraftDetails = () => {
     if (!aircraft) {
         return <div>Информация о самолете недоступна.</div>;
     }
-    console.log(aircraft.BasicDescription);
     return (
         <div className={classes.block}>
             <div className={classes.blockAbout}>

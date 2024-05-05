@@ -1,3 +1,4 @@
+import {useState} from "react";
 import classes from "./AircraftCard.module.scss";
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
     imgPath: string;
     width: number;
     height: number;
+    onClick?: () => void;
 }
 
 const AircraftCard: React.FC<Props> = ({
@@ -18,8 +20,12 @@ const AircraftCard: React.FC<Props> = ({
     height,
 }) => {
     const imgPathServer = "http://localhost:3500/" + imgPath;
+    const [loaded, setLoaded] = useState(false);
     return (
-        <div className={classes.block} style={{width: `${width}px`}}>
+        <div
+            className={classes.block}
+            onLoad={() => setLoaded(true)}
+            style={{width: `${width}px`, opacity: loaded ? 1 : 0, transition: "opacity 0.3s ease"}}>
             <div className={classes.blockImg} style={{height: `${height}px`}}>
                 <img src={imgPathServer} alt='' />
             </div>

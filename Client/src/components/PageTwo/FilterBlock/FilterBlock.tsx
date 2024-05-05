@@ -14,9 +14,10 @@ interface Props {
 }
 const FilterBlock: React.FC<Props> = ({leftValue, toggleLeft}) => {
     const dispatch = useAppDispatch();
-    const {aircraftCategories, manufacturers, maxPassengerCapacity} = useAppSelector(
-        (state) => state,
-    );
+    const aircraftCategories = useAppSelector((state) => state.aircraftCategories);
+    const manufacturers = useAppSelector((state) => state.manufacturers);
+    const maxPassengerCapacity = useAppSelector((state) => state.maxPassengerCapacity);
+
     const [minValue, setMinValue] = useState("");
     const [maxValue, setMaxValue] = useState(maxPassengerCapacity);
     const [isActiveFirst, setIsActiveFirst] = useState(false);
@@ -89,7 +90,7 @@ const FilterBlock: React.FC<Props> = ({leftValue, toggleLeft}) => {
                 <h6 className='text'>Производитель</h6>
                 <input
                     type='text'
-                    className='background_search_4'
+                    className='background_search_4 text'
                     placeholder='Найти производителя'
                     onChange={handleSubmit}
                     value={searchTerm}
@@ -120,11 +121,17 @@ const FilterBlock: React.FC<Props> = ({leftValue, toggleLeft}) => {
             <div className={classes.section3}>
                 <h6 className='text'>Пассажирских мест</h6>
                 <div className={classes.blockInputs}>
-                    <input type='number' placeholder='от 1' onChange={handleMinChange} />
+                    <input
+                        type='number'
+                        placeholder='от 1'
+                        onChange={handleMinChange}
+                        className={"text"}
+                    />
                     <input
                         type='number'
                         placeholder={`до ${maxPassengerCapacity}`}
                         onChange={handleMaxChange}
+                        className={"text"}
                     />
                 </div>
             </div>

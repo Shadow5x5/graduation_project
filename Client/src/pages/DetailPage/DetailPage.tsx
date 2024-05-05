@@ -4,21 +4,35 @@ import Header from "../../components/PageThree/Header/Header";
 import InfiniteSlider from "../../components/PageThree/InfiniteSlider/InfiniteSlider";
 import BasicAttributes from "../../components/PageThree/BasicAttributes/BasicAttributes";
 import {useEffect} from "react";
-import {useAppSelector} from "../../context/hook";
+import {useAppDispatch, useAppSelector} from "../../context/hook";
 import {useNavigate, useParams} from "react-router-dom";
+import RecommendationsBlock from "../../components/PageThree/RecommendationsBlock/RecommendationsBlock";
+import {fetchRecommendedAircrafts} from "../../store/aircraftSlice";
+
 const DetailPage = () => {
     const navigate = useNavigate();
-    const {aircrafts} = useAppSelector((state) => state);
+    const dispatch = useAppDispatch();
+
+    const selectedAircraft = useAppSelector((state) => state.selectedAircraft);
+
     const {id} = useParams();
-    const aircraft = aircrafts.find((aircraft) => aircraft.id === id);
+
     useEffect(() => {
-        if (!aircraft) {
+        if (id) {
+            dispatch(fetchRecommendedAircrafts(id));
+        }
+    }, [id, dispatch]);
+
+    useEffect(() => {
+        if (selectedAircraft?.id !== id) {
             navigate("/search", {replace: true});
         }
-    }, [aircraft, navigate]);
+    }, [selectedAircraft, navigate, id]);
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [id]);
+
     return (
         <div className={classes.block}>
             <div className={classes.container}>
@@ -29,6 +43,7 @@ const DetailPage = () => {
             <div className={classes.container}>
                 <BasicAttributes />
             </div>
+            <RecommendationsBlock />
         </div>
     );
 };

@@ -1,7 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import classes from "./InfiniteSlider.module.scss";
 import {useAppSelector} from "../../../context/hook";
-import {useParams} from "react-router-dom";
 
 const TRANSITION_DURATION = 300;
 const BUTTON_DISABLE_TIME = 600;
@@ -9,9 +8,8 @@ const PAGE_WIDTH = 792;
 const COLUMN_GAP = 8;
 
 const InfiniteSlider = () => {
-    const {aircrafts} = useAppSelector((state) => state);
-    const {id} = useParams();
-    const aircraft = aircrafts.find((aircraft) => aircraft.id === id);
+    const selectedAircraft = useAppSelector((state) => state.selectedAircraft);
+    const aircraft = selectedAircraft
     let imgPath: string[] = [];
     if (aircraft && aircraft.SliderImages && aircraft.SliderImages.length > 0) {
         imgPath = aircraft.SliderImages.map((item) => "http://localhost:3500/" + item);

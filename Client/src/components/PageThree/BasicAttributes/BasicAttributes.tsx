@@ -1,12 +1,10 @@
 import {useMemo} from "react";
 import {useAppSelector} from "../../../context/hook";
 import classes from "./BasicAttributes.module.scss";
-import {useParams} from "react-router-dom";
 
 const BasicAttributes = () => {
-    const {aircrafts} = useAppSelector((state) => state);
-    const {id} = useParams();
-    const aircraft = aircrafts.find((aircraft) => aircraft.id === id);
+    const selectedAircraft = useAppSelector((state) => state.selectedAircraft);
+    const aircraft = selectedAircraft;
     const arrayTypeFirst = [
         "Крейсерская скорость (км/ч)",
         "Дальность (км)",
@@ -46,7 +44,7 @@ const BasicAttributes = () => {
                 <ul className={classes.itemsFirst}>
                     {arrayValueFirst.map((item, index) => {
                         return (
-                            <li key={item}>
+                            <li key={item + index}>
                                 <p className='background'>{arrayTypeFirst[index]}</p>
                                 <span className='text background'>{item}</span>
                             </li>

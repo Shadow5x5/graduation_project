@@ -12,7 +12,7 @@ const SearchResultsSection = () => {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchAircrafts(inputValue));
-    }, [inputValue]);
+    }, [inputValue, dispatch]);
     const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
         if (e.target.value.length !== 0) {

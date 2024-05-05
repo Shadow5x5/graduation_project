@@ -9,7 +9,8 @@ interface MyComponentProps {
 }
 
 const SearchResult: React.FC<MyComponentProps> = ({searchText, isSmallScreen}) => {
-    const {aircrafts} = useAppSelector((state) => state);
+    const aircrafts = useAppSelector(state => state.aircrafts);
+
     return (
         <>
             {aircrafts.length > 0 && (
