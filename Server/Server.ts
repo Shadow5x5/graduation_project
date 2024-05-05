@@ -211,6 +211,7 @@ app.get("/allManufacturers", async (req, res) => {
             (bucket: Bucket) => bucket.key.split(" ")[0],
         );
         const uniqueArray = [...new Set(manufacturers)];
+        console.log("t")
         res.json(uniqueArray);
     } catch (error) {
         console.error(error);
