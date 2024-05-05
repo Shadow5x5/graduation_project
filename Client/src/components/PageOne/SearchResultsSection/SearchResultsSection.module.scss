@@ -14,6 +14,7 @@
         height: 40px;
         column-gap: 12px;
         box-sizing: border-box;
+        transition: 0.3s all;
         .inputBlock {
             max-width: 635px;
             flex-grow: 1;

@@ -23,8 +23,10 @@ const AircraftList = () => {
         return () => resizeObserver.disconnect();
     }, []);
     const columns = containerWidth < 540 ? 2 : 3;
+    console.log(columns);
     const cardWidth = Math.max((containerWidth - columns * 16 + 10 + 8) / columns, 165);
     const cardHeight = (cardWidth * 180) / 288;
+    console.log(filteredSortedAircrafts);
     return (
         <div
             className={classes.block}

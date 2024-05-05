@@ -89,9 +89,12 @@ const aircraftSlice = createSlice({
     initialState,
     reducers: {
         setItems: (state, action: PayloadAction<Aircraft[]>) => {
-            state.filteredSortedAircrafts = action.payload;
-            console.log("1231232131");
-            aircraftSlice.caseReducers.applyFiltersAndSort(state);
+            if (state.filteredSortedAircrafts.length === 0) {
+                state.filteredSortedAircrafts = action.payload;
+            } else {
+                state.filteredSortedAircrafts = action.payload;
+                aircraftSlice.caseReducers.applyFiltersAndSort(state);
+            }
         },
         setSelectedTypes: (state, action: PayloadAction<string>) => {
             const type = action.payload;
